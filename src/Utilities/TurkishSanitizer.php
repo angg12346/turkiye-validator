@@ -9,28 +9,30 @@ class TurkishSanitizer
     public function toUpper(string $value): string
     {
         $value = str_replace(['i', 'ı'], ['İ', 'I'], $value);
+
         return mb_strtoupper($value, 'UTF-8');
     }
 
     public function toLower(string $value): string
     {
         $value = str_replace(['İ', 'I'], ['i', 'ı'], $value);
+
         return mb_strtolower($value, 'UTF-8');
     }
 
     public function toTitle(string $value): string
     {
         $words = explode(' ', $this->toLower($value));
-        
+
         $titledWords = array_map(function ($word) {
             if (mb_strlen($word, 'UTF-8') === 0) {
                 return $word;
             }
-            
+
             $firstChar = mb_substr($word, 0, 1, 'UTF-8');
             $rest = mb_substr($word, 1, null, 'UTF-8');
-            
-            return $this->toUpper($firstChar) . $this->toLower($rest);
+
+            return $this->toUpper($firstChar).$this->toLower($rest);
         }, $words);
 
         return implode(' ', $titledWords);

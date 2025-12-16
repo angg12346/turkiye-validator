@@ -20,7 +20,7 @@ class TurkishIdentityNumber implements Rule
         $sumEvens = $digits[1] + $digits[3] + $digits[5] + $digits[7];
 
         $checksum1 = (($sumOdds * 7) - $sumEvens) % 10;
-        
+
         if ($checksum1 !== $digits[9]) {
             return false;
         }

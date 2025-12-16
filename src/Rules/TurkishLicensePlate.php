@@ -17,7 +17,7 @@ class TurkishLicensePlate implements Rule
         }
 
         $cityCode = (int) $matches[1];
-        
+
         if ($cityCode < 1 || $cityCode > 81) {
             return false;
         }
