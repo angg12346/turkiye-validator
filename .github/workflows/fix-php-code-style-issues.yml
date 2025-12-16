@@ -1,0 +1,27 @@
+name: Fix PHP Code Style Issues
+
+on:
+  push:
+    paths:
+      - '**.php'
+
+jobs:
+  php-code-styling:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+            ref: ${{ github.head_ref }}
+
+      - name: Fix PHP code style issues
+        uses: agate/laravel-pint-action@v1
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Fix: Auto-format code with Pint"
