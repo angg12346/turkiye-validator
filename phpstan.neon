@@ -1,0 +1,16 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    paths:
+        - src
+        - config
+
+    # The level 5 is a good balance for a start.
+    level: 5
+
+    ignoreErrors:
+        # Ignore generic Laravel magic errors if necessary.
+        # - '#Unsafe usage of new static#'
+        
+    tmpDir: build/phpstan

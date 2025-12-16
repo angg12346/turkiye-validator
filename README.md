@@ -1,5 +1,10 @@
 # Turkiye Validator
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/laravingo/turkiye-validator/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/laravingo/turkiye-validator/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
+[![License](https://img.shields.io/packagist/l/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
+
 ![PHP Version](https://img.shields.io/badge/php-%5E8.2-777BB4.svg?style=flat-square)
 ![Laravel Version](https://img.shields.io/badge/laravel-10.x%20%7C%2011.x-FF2D20.svg?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
