@@ -4,6 +4,12 @@
     <img src=".github/assets/cover-image.png" alt="Laravingo Turkiye Validator Cover Image" width="100%" style="border-radius: 8px;">
 </p>
 
+<p align="center">
+    <a href="README.md">🇺🇸 English</a> | 
+    <a href="README.tr.md">🇹🇷 Türkçe</a> | 
+    <a href="README.es.md">🇪🇸 Español</a>
+</p>
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/laravingo/turkiye-validator/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/laravingo/turkiye-validator/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
@@ -37,7 +43,7 @@ php artisan vendor:publish --tag=turkiye-validator-config
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 After publishing, you can configure the package in `config/turkiye-validator.php`:
 
@@ -53,7 +59,7 @@ return [
 
 ---
 
-## 🔥 Validation Rules
+## Validation Rules
 
 This package strictly implements official mathematical algorithms (checksums, modulo checks) rather than simple regex matching.
 
@@ -89,7 +95,7 @@ $request->validate([
 
 ---
 
-## 🏙️ Address & Data Service
+## Address & Data Service
 
 The package includes a data service to easily access official lists of Turkish cities and districts.
 
@@ -109,7 +115,7 @@ $districts = Turkiye::districts(34);
 
 ---
 
-## 🛠️ Helper Functions
+## Helper Functions
 
 Utility helpers are available via the `Turkiye` facade to format and mask sensitive data.
 
@@ -135,7 +141,7 @@ $masked = Turkiye::maskIdentityNumber('12345678901');
 
 ---
 
-## 🧼 Sanitization & Helper
+## Sanitization & Helper
 
 The package provides a `TurkishSanitizer` class (and a `Turkiye` facade) to clean messy input. It explicitly handles Turkish character conversion (i/İ/I/ı) correctly, regardless of server locale.
 
@@ -161,7 +167,7 @@ echo $sanitizer->cleanIban('tr 12 34 56...');
 
 ---
 
-## 💎 Eloquent Casts (Pro Feature)
+## Eloquent Casts (Pro Feature)
 
 Automatically clean and format your data *before* it is saved to the database using Laravel Custom Casts.
 
@@ -189,7 +195,7 @@ Now, when you do `$user->phone = '(555) 123'; $user->save();`, it saves `555123.
 
 ---
 
-## 🎭 Faker Provider (Testing)
+## Faker Provider (Testing)
 
 We automatically register a Faker provider so you can generate **mathematically valid** test data in your factories and seeds.
 
@@ -206,7 +212,7 @@ $validPhone = fake()->turkishPhoneNumber(); // Valid +905...
 
 ---
 
-## 🌍 Localization
+## Localization
 
 The package supports English (`en`) and Turkish (`tr`) out of the box.
 
@@ -226,7 +232,7 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 ---
 
-## 🧪 Testing
+## Testing
 
 This package uses [Pest PHP](https://pestphp.com) for automated testing.
 
